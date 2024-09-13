@@ -1,0 +1,6 @@
+# @package _group_
+deterministic: false
+max_epochs: 50
+min_epochs: 1
+check_val_every_n_epoch: 10
+num_sanity_val_steps: 2

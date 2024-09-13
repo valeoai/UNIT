@@ -1,0 +1,52 @@
+# @package data
+train_dataset:
+  _target_: datasets.nuscenes_keyframes.LidarDataset
+  dataset_name: "nuscenes"
+  data_dir: ../datasets/nuscenes
+  mode: ${data.train_mode}
+  add_reflection: ${data.add_reflection}
+  add_distance: ${data.add_distance}
+  add_instance: ${data.add_instance}
+  add_raw_coordinates: ${data.add_raw_coordinates}
+  num_labels: 2 # ${data.num_labels}
+  data_percent: 1.0
+  ignore_label: ${data.ignore_label}
+  volume_augmentations_path: conf/augmentation/volumentations_aug.yaml
+  filter_out_classes: [0,]
+  label_offset: 1
+  segments_dir: "segments_gridsample"
+  num_frames: ${general.num_frames}
+
+validation_dataset:
+  _target_: datasets.nuscenes_keyframes.LidarDataset
+  dataset_name: "nuscenes"
+  data_dir: ../datasets/nuscenes
+  mode: ${data.validation_mode}
+  add_reflection: ${data.add_reflection}
+  add_distance: ${data.add_distance}
+  add_instance: ${data.add_instance}
+  add_raw_coordinates: ${data.add_raw_coordinates}
+  num_labels: 2 # ${data.num_labels}
+  data_percent: 1.0
+  ignore_label: ${data.ignore_label}
+  volume_augmentations_path: null
+  filter_out_classes: [0,]
+  label_offset: 1
+  segments_dir: "segments_gridsample"
+
+predict_dataset:
+  _target_: datasets.nuscenes.LidarDataset
+  dataset_name: "nuscenes"
+  data_dir: ../datasets/nuscenes
+  mode: ${data.predict_mode}
+  add_reflection: ${data.add_reflection}
+  add_distance: ${data.add_distance}
+  add_instance: ${data.add_instance}
+  add_raw_coordinates: ${data.add_raw_coordinates}
+  num_labels: 2 # ${data.num_labels}
+  data_percent: 1.0
+  ignore_label: ${data.ignore_label}
+  volume_augmentations_path: null
+  filter_out_classes: [0,]
+  label_offset: 1
+  segments_dir: "segments_gridsample"

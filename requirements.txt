@@ -1,0 +1,15 @@
+numpy==1.23.5
+hdbscan==0.8.38
+torch==2.0.1
+MinkowskiEngine==0.5.4
+torch_scatter
+nuscenes-devkit
+tqdm
+pandas
+volumentations
+omegaconf
+hydra-core
+pytorch_lightning==2.3.0
+lapjv @ git+https://github.com/src-d/lapjv
+pypatchworkpp
+loguru

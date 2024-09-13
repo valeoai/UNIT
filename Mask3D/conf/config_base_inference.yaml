@@ -1,0 +1,57 @@
+general:
+  train_mode: true
+  task: "unsupervised_instance_segmentation"
+  seed: null
+  checkpoint: "saved/two_frames_param_vanilla/last-epoch.ckpt"
+  backbone_checkpoint: null
+  freeze_backbone: false # train only last layer
+  linear_probing_backbone: false
+  filter_out_instances: false
+  save_visualizations: false
+  visualization_point_size: 20
+  decoder_id: -1
+  use_dbscan: false
+  ignore_class_threshold: 100
+  project_name: inference
+  experiment_name: DEBUG_ABLATION
+  num_targets: 0  # 0 indicates unsupervised
+  add_instance: true
+
+  num_frames: 1
+  forward_queries: true
+  train_on_all_frames: false
+  consistency_loss: false
+  queries_dropout: 0.0
+
+  ignore_mask_idx: []
+
+  save_dir: null
+  ckpt_path: null
+
+  experiment_id: 1
+  version: 1
+
+  gpus: 1
+
+  precision: "bf16-mixed"
+
+defaults:
+  - data: outdoor
+  - data/data_loaders: simple_loader
+  - data/datasets: semantic_kitti
+  - data/collation_functions: voxelize_collate_fixed
+  - logging: minimal
+  - model: mask3d
+  - optimizer: adamw
+  - scheduler: onecyclelr
+  - trainer: trainer
+  # - callbacks: callbacks_instance_segmentation
+  - matcher: hungarian_matcher
+  - loss: set_criterion
+
+# hydra:
+#   run:
+#     dir: saved/hydra_logs/${now:%Y-%m-%d}/${now:%H-%M-%S}
+#   sweep:
+#     dir: saved/hydra_logs/${now:%Y-%m-%d}/${now:%H-%M-%S}
+#     subdir: ${hydra.job.num}_${hydra.job.id}
