@@ -36,7 +36,7 @@ PandaSet does not natively provide instance ground-truth. We provide the code to
 
 ### Obtaining input segments (4D-Seg)
 
-For SemanticKITTI, you can directly [download](https://github.com/valeoai/UNIT/releases/download/v1.0/segments_gridsample_sk.tar) the pre-processing as re-running Patchwork on your side can be complicated. Alternatively we provide the preprocessing code using Patchwork++, but please note this was not what the article used.
+For SemanticKITTI, you can directly [download](https://github.com/valeoai/UNIT/releases/download/v1.0/segments_gridsample_sk.tar.gz) the pre-processing as re-running Patchwork on your side can be complicated. Alternatively we provide the preprocessing code using Patchwork++, but please note this was not what the article used.
 
 For the other datasets, you must install [Patchwork++](https://github.com/url-kaist/patchwork-plusplus) and run `preprocess_nuscenes.py` and `preprocess_pandaset.py`. This may take several hours, depending on your CPU.
 
