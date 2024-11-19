@@ -12,8 +12,7 @@ If you use UNIT in your research, please cite:
 @article{sautier2025unit,
   title = {{UNIT}: Unsupervised Online Instance Segmentation through Time},
   author = {Corentin Sautier and Gilles Puy and Alexandre Boulch and Renaud Marlet and Vincent Lepetit},
-  arxiv={2310.17504},
-  journal={arXiv},
+  journal={3DV},
   year = {2025}
 }
 ```
@@ -23,6 +22,21 @@ If you use UNIT in your research, please cite:
 ### Datasets
 
 This project has been adapted to [SemanticKITTI](http://www.semantic-kitti.org/tasks.html#semseg), [nuScenes](https://www.nuscenes.org/lidar-segmentation) and [PandaSet](https://pandaset.org/). Please provide the datasets in the datasets folder, with names in lowercase letters.
+
+```
+UNIT
+├── datasets
+│   ├── nuscenes
+│   │   │── v1.0-trainval
+│   │   │── samples
+│   │   │── sweeps
+│   ├── pandaset
+│   │   │── 001
+│   │   │── 002
+│   │   │── ...
+│   ├── semantickitti
+│   │   │── sequences
+```
 
 PandaSet does not natively provide instance ground-truth. We provide the code to infer them, independently for the two different Lidar sensors of this dataset, PandarGT and Pandar64. Please run `python create_instance_gt_pandaset.py --sensor pandargt` to run the pre-processing on PandarGT if you intend to use this dataset.
 
