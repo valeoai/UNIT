@@ -35,7 +35,7 @@ class LidarDataset(Dataset):
     ):
         self.dataset_name = dataset_name
         self.mode = mode
-        data_dir = Path(data_dir) / "dataset" / "sequences"
+        data_dir = Path(data_dir) / "sequences"
         if mode == "train":
             self.data_dir = [data_dir / i / "velodyne" for i in ["00", "01", "02", "03", "04", "05", "06", "07", "09", "10"]]
         elif mode == "validation":
@@ -76,7 +76,7 @@ class LidarDataset(Dataset):
                 files = os.listdir(database_path)
                 files = sorted(files)
                 files = [database_path / file for file in files]
-                segments_path = str(database_path).replace("dataset/sequences", f"assets/{segments_dir}")
+                segments_path = str(database_path).replace("sequences", f"assets/{segments_dir}")
                 segments_path = segments_path.replace("velodyne", "")
                 labels = os.listdir(segments_path)
                 labels = sorted(labels)

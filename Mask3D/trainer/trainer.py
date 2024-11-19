@@ -405,10 +405,10 @@ class InstanceSegmentation(pl.LightningModule):
         if self.forward_queries:
             self.queries = output["queries"]
 
-        asset_path = str(self.validation_dataset.data_dir[0]).replace("dataset/sequences", f"assets/{self.config.general.experiment_name}")[:-11]
+        asset_path = str(self.validation_dataset.data_dir[0]).replace("sequences", f"assets/{self.config.general.experiment_name}")[:-11]
         fname = os.path.join(asset_path, file_names[0].rsplit(".")[0] + ".seg")
         if self.validation_dataset.dataset_name == "semantic_kitti":
-            asset_path = str(self.validation_dataset.data_dir[0]).replace("dataset/sequences", f"assets/{self.config.general.experiment_name}")[:-11]
+            asset_path = str(self.validation_dataset.data_dir[0]).replace("sequences", f"assets/{self.config.general.experiment_name}")[:-11]
             fname = os.path.join(asset_path, file_names[0].rsplit(".")[0] + ".seg")
         elif self.validation_dataset.dataset_name.startswith("pandaset"):
             asset_path = self.validation_dataset.data_dir +  f"/assets/{self.config.general.experiment_name}"

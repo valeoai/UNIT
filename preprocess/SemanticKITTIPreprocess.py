@@ -73,7 +73,7 @@ class KITTIPreprocessor(Dataset):
         self.points_datapath = []
 
         for seq in self.seqs:
-            point_seq_path = os.path.join(self.data_dir, 'dataset', 'sequences', seq, 'velodyne')
+            point_seq_path = os.path.join(self.data_dir, 'sequences', seq, 'velodyne')
             point_seq_bin = os.listdir(point_seq_path)
             point_seq_bin.sort()
 
