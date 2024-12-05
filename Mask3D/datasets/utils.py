@@ -324,9 +324,9 @@ def voxelize_fixed(
             NoGpu(
                 coordinates,
                 features,
-                original_labels,
-                inverse_maps,
-                original_coordinates,
+                original_labels=original_labels,
+                inverse_maps=inverse_maps,
+                original_coordinates=original_coordinates,
             )
         )
         labels_list.append(labels)

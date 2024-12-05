@@ -457,7 +457,6 @@ class InstanceSegmentation(pl.LightningModule):
             self.id_centroid[segment] = centroid
             self.staleness[segment] = 0
 
-        masks = np.vectorize(self.map_id.__getitem__)(masks).astype(np.int32)
         for segment in np.unique(masks):
             if segment == self.ground:
                 continue
